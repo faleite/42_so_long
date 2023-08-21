@@ -28,7 +28,7 @@ textures, sprites, and some other very basic gameplay elements.**
   - [Get Started](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx)
   - [Video Tutorial Oceano](https://youtu.be/bYS93r6U0zg)
 - [**Game Graphics**](https://itch.io/game-assets/tag-16x16)
-- [PNG to XPM](https://convertio.co/png-xpm/)
+- [**PNG to XPM**](https://convertio.co/png-xpm/)
 - [**Tutorial**](https://reactive.so/post/42-a-comprehensive-guide-to-so_long)
 - [**42 Guide**](https://42-cursus.gitbook.io/guide/)
 - [**So Long Eval**](https://github.com/rphlr/42-Evals/tree/main/Rank02/so_long)
