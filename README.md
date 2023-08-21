@@ -26,6 +26,7 @@ textures, sprites, and some other very basic gameplay elements.**
   - [Man MLX](https://qst0.github.io/ft_libgfx/man_mlx.html)
   - [42-cli](https://github.com/herbievine/42-cli)
   - [Get Started](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx)
+  - [Video Tutorial Oceano](https://youtu.be/bYS93r6U0zg)
 - [**Game Graphics**](https://itch.io/game-assets/tag-16x16)
 - [**Tutorial**](https://reactive.so/post/42-a-comprehensive-guide-to-so_long)
 - [**42 Guide**](https://42-cursus.gitbook.io/guide/)
