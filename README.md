@@ -27,6 +27,7 @@ textures, sprites, and some other very basic gameplay elements.**
   - [42-cli](https://github.com/herbievine/42-cli)
   - [Get Started](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx)
   - [Video Tutorial Oceano](https://youtu.be/bYS93r6U0zg)
+    - [Repo](https://github.com/suspectedoceano/mlx) 
 - [**Game Graphics**](https://itch.io/game-assets/tag-16x16)
 - [**PNG to XPM**](https://convertio.co/png-xpm/)
 - [**Tutorial**](https://reactive.so/post/42-a-comprehensive-guide-to-so_long)
