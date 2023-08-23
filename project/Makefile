@@ -4,16 +4,16 @@
 
 NAME		= so_long
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
-# FILES 		= $(wildcard src/*.c)
-FILES 		= main.c
+CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+FILES 		= $(wildcard src/*.c)
 OBJS		= $(FILES:.c=.o)
 MLX_L		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+PRINTF		= ./ft_printf/libftprintf.a
 RM			= rm -f
-INCLUDES	= -I/usr/include -Imlx
+# INCLUDES	= -I/usr/include -Imlx
 
-.c.o:
-	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
+# .c.o:
+#	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 #.c.o:
 #	$(CC) -c $< -o $@
@@ -34,27 +34,25 @@ PURPLE 		= \033[0;35m
 #                                 SCRIPT                                      #
 ###############################################################################
 
-#all: $(LIBFT_LIB) $(NAME)
 all: $(NAME)
 
 $(NAME): $(OBJS)
 
-#		@make -C mlx_linux
-#		clear
-#		@make -C $(LIBFT_PATH) # chama Make para libft
-#		clear
+		make -C mlx_linux
+		clear
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
-		$(CC) $(CFLAGS) $(OBJS) $(MLX_L) -o $(NAME)
-#		$(CC) $(CFLAGS) $(OBJS) $(MLX_L) $(LIBFT_LIB) -o $(NAME) # inclui a libft
+		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) $(MLX_L) -o $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
 		@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 clean:
-		@$(RM) $(OBJS)
+		$(RM) $(OBJS)
+		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 
 fclean: clean
-		@$(RM) $(NAME)
+		$(RM) $(NAME)
+		clear
 		@echo "$(RED)$(NAME) $(GREEN)has been deleted.$(CLR_RESET)\n"
 
 re: fclean all
