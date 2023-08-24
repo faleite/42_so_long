@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_adress.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:27:52 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/05/14 14:05:41 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/05/14 14:46:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "ft_printf.h" 
 
-// int	main(void)
-int	main(int argc, char *argv[])
+int	ft_adress(unsigned long n)
 {
-	if (argc != 2)
-		using();
-	if (check_type(argv[1]) == 0)
-		build_window();
-	return (0);
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		len += write(1, "(nil)", 5);
+	else
+	{
+		len += write(1, "0x", 2);
+		len += ft_hexa(n, HEXALOW);
+	}
+	return (len);
 }

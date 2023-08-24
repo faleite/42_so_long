@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_unsint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:27:52 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/05/11 21:29:36 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/05/11 21:54:05 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "ft_printf.h" 
 
-// int	main(void)
-int	main(int argc, char *argv[])
+int	ft_unsint(unsigned int n)
 {
-	if (argc != 2)
-		using();
-	if (check_type(argv[1]) == 0)
-		build_window();
-	return (0);
+	int	len;
+
+	len = 0;
+	if (n < 10)
+		len += write(1, &"0123456789"[n], 1);
+	else
+	{
+		len += ft_unsint((n / 10));
+		len += ft_unsint((n % 10));
+	}
+	return (len);
 }

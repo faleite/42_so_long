@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:27:52 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/05/14 13:01:35 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/05/14 16:58:31 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "ft_printf.h" 
 
-// int	main(void)
-int	main(int argc, char *argv[])
+int	ft_hexa(unsigned long n, char *type_case)
 {
-	if (argc != 2)
-		using();
-	if (check_type(argv[1]) == 0)
-		build_window();
-	return (0);
+	int	len;
+
+	len = 0;
+	if (n < 16)
+		len += write(1, &type_case[n], 1);
+	else
+	{
+		len += ft_hexa((n / 16), type_case);
+		len += ft_hexa((n % 16), type_case);
+	}
+	return (len);
 }

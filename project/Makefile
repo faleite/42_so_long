@@ -2,6 +2,7 @@
 #                                 VARIABLES                                   #
 ###############################################################################
 
+.SILENT:
 NAME		= so_long
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
@@ -9,6 +10,7 @@ FILES 		= $(wildcard src/*.c)
 OBJS		= $(FILES:.c=.o)
 MLX_L		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 PRINTF		= ./ft_printf/libftprintf.a
+LIBFT		= ./libft/libft.a
 RM			= rm -f
 # INCLUDES	= -I/usr/include -Imlx
 
@@ -38,15 +40,20 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 
-		make -C mlx_linux
+		@make -C mlx_linux
 		clear
+#		@make -C ft_printf
+#		@make -C libft
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
-		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) $(MLX_L) -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) $(LIBFT) $(MLX_L) -o $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
 		@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 clean:
 		$(RM) $(OBJS)
+		@make clean -C mlx_linux
+#		@make clean -C ft_printf
+#		@make clean -C libft
 		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 
@@ -60,4 +67,3 @@ re: fclean all
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
 
 .PHONY: all clean fclean re
-

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: faaraujo <faaraujo@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:27:52 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/04/21 21:07:36 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/05/20 11:38:06 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "libft.h"
 
-// int	main(void)
-int	main(int argc, char *argv[])
+/**
+ * @brief Outputs the character ’c’ to the given file descriptor.
+ * @param c The character to output.
+ * @param fd The file descriptor on which to write.
+*/
+void	ft_putchar_fd(char c, int fd)
 {
-	if (argc != 2)
-		using();
-	if (check_type(argv[1]) == 0)
-		build_window();
-	return (0);
+	write(fd, &c, 1);
 }

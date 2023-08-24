@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:27:52 by faaraujo         ###   ########.fr       */
+/*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
+/*   Updated: 2023/08/24 21:45:37 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// int	main(void)
-int	main(int argc, char *argv[])
+int	check_type(char *str)
 {
-	if (argc != 2)
-		using();
-	if (check_type(argv[1]) == 0)
-		build_window();
-	return (0);
+	int		len;
+	int		result;
+	char	*map;
+
+	len = ft_strlen(str);
+	if (len <= 4)
+		return (1);
+	map = ft_strchr(str, '.');
+	result = (ft_strcmp(map, ".ber"));
+	if (result)
+		err_case("Error\nTeste");
+	return (result);
 }
