@@ -6,7 +6,8 @@
 NAME		= so_long
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
-FILES 		= $(wildcard src/*.c)
+SRC_DIR		= src get_next_line
+FILES 		= $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
 OBJS		= $(FILES:.c=.o)
 MLX_L		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 PRINTF		= ./ft_printf/libftprintf.a
@@ -17,8 +18,8 @@ RM			= rm -f
 # .c.o:
 #	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
-#.c.o:
-#	$(CC) -c $< -o $@
+.c.o:
+	$(CC) -c $< -o $@
 
 ################################################################################
 #                                 COLORS                                       #

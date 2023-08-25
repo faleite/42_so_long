@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/25 19:22:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/25 21:02:06 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 # include "../mlx_linux/mlx.h"
 # include <errno.h> /**/
 # include <fcntl.h> /**/
