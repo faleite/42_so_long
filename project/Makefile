@@ -2,7 +2,7 @@
 #                                 VARIABLES                                   #
 ###############################################################################
 
-.SILENT:
+# .SILENT:
 NAME		= so_long
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
@@ -40,7 +40,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 
-		@make -C mlx_linux
+#		@make -C mlx_linux
 		clear
 #		@make -C ft_printf
 #		@make -C libft
@@ -51,7 +51,7 @@ $(NAME): $(OBJS)
 
 clean:
 		$(RM) $(OBJS)
-		@make clean -C mlx_linux
+#		@make clean -C mlx_linux
 #		@make clean -C ft_printf
 #		@make clean -C libft
 		clear

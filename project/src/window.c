@@ -6,11 +6,11 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:44:31 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 17:45:52 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:29:49 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../includes/so_long.h"
 
 int	destroy_window(t_data *data)
 {

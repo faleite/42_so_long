@@ -6,11 +6,11 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/24 21:45:37 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:29:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../includes/so_long.h"
 
 int	check_type(char *str)
 {
@@ -20,10 +20,10 @@ int	check_type(char *str)
 
 	len = ft_strlen(str);
 	if (len <= 4)
-		return (1);
+		err_case("Error\nThe map must be a valid format: file.ber\n");
 	map = ft_strchr(str, '.');
-	result = (ft_strcmp(map, ".ber"));
+	result = (ft_strncmp(map, ".ber", len));
 	if (result)
-		err_case("Error\nTeste");
+		err_case("Error\nThe map must be a valid format: file.ber\n");
 	return (result);
 }
