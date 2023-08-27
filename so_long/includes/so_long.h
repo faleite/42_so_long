@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/25 21:02:06 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:03:31 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	char	**matrix;
+	char	**cpy_matrix;
 }	t_data;
 
 /*  error  */
@@ -36,6 +38,9 @@ void	err_case(char *msg);
 
 /* checks */
 int		check_type(char *str);
+char	**copy_map(char *file);
+char	**copy_matrix(char **matrix);
+
 
 /* window */
 int		destroy_window(t_data *data);

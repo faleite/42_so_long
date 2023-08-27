@@ -6,38 +6,45 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/25 22:11:45 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:04:39 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	get_map(void)
+/* Not use yet */
+void	init_data(t_data **buff)
 {
-	char	*line;
-	int		fd;
-	int		i;
+	t_data	*data;
 
-	fd = open("src/map.ber", O_RDONLY);
-	i = 1;
-	ft_printf("\nGET MAP:\n\n");
-	while (i <= 5)
-	{
-		line = get_next_line(fd);
-		ft_printf("%s", line);
-		free(line);
-		i++;
-	}
-	ft_printf("\n");
-	close(fd);
-	return (0);
+	data = malloc(sizeof(t_data));
+	if (!data)
+		exit(EXIT_FAILURE);
+	data->matrix = NULL;
+	// data->mlx_ptr = NULL;
+	// data->win_ptr = NULL;
+	*buff = data;
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] != NULL)
+		free(map[i++]);
+	free(map);
+	ft_printf("\n\nIT'S FREE!\n\n");
 }
 
 int	main(int argc, char *argv[])
 {
-	get_map();
+	t_data	data;
+
 	if (argc != 2)
 		err_case("Error\nUse ./prog file.ber\n");
+	data.matrix = copy_map(argv[1]);
+	free_map(data.matrix);
 	if (check_type(argv[1]) == 0)
 		build_window();
 	return (0);
