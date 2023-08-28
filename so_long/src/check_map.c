@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/27 21:03:21 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:46:11 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	**copy_map(char *file)
 	matrix = (char **)malloc(sizeof(matrix));
 	fd = open(file, O_RDONLY);
 	i = 0;
+	ft_printf("\nThis is a Map Matrix\n");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -49,7 +50,7 @@ char	**copy_map(char *file)
 		ft_printf("\n%s", matrix[i]);
 		i++;
 	}
-	ft_printf("\n\n");
+	ft_printf("\n");
 	matrix[i] = NULL;
 	close(fd);
 	return (matrix);

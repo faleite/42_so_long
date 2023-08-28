@@ -41,10 +41,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 
-#		@make -C mlx_linux
+		@make -C mlx_linux
 		clear
-#		@make -C ft_printf
-#		@make -C libft
+		@make -C ft_printf
+		@make -C libft
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
 		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) $(LIBFT) $(MLX_L) -o $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
@@ -52,9 +52,9 @@ $(NAME): $(OBJS)
 
 clean:
 		$(RM) $(OBJS)
-#		@make clean -C mlx_linux
-#		@make clean -C ft_printf
-#		@make clean -C libft
+		@make clean -C mlx_linux
+		@make clean -C ft_printf
+		@make clean -C libft
 		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 

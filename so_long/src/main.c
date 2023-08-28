@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/27 21:04:39 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:46:36 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_map(char **map)
 	while (map[i] != NULL)
 		free(map[i++]);
 	free(map);
-	ft_printf("\n\nIT'S FREE!\n\n");
+	ft_printf("\nIT'S FREE!\n\n");
 }
 
 int	main(int argc, char *argv[])
