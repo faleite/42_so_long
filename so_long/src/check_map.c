@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/28 16:46:11 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:52:57 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char	**copy_map(char *file)
 		free(line);
 		ft_printf("\n%s", matrix[i]);
 		i++;
+
 	}
 	ft_printf("\n");
 	matrix[i] = NULL;
@@ -56,19 +57,19 @@ char	**copy_map(char *file)
 	return (matrix);
 }
 
-char	**copy_matrix(char **matrix)
-{
-	int		i;
-	char	**cpy_matrix;
+// char	**copy_matrix(char **matrix)
+// {
+// 	int		i;
+// 	char	**cpy_matrix;
 
-	cpy_matrix = (char **)malloc(sizeof(cpy_matrix));
-	i = 0;
-	while (matrix[i] != NULL)
-	{
-		cpy_matrix[i] = ft_strdup(matrix[i]);
-		ft_printf("%s\n", cpy_matrix[i]);
-		i++;
-	}
-	cpy_matrix[i] = NULL;
-	return (cpy_matrix);
-}
+// 	cpy_matrix = (char **)malloc(sizeof(cpy_matrix));
+// 	i = 0;
+// 	while (matrix[i] != NULL)
+// 	{
+// 		cpy_matrix[i] = ft_strdup(matrix[i]);
+// 		ft_printf("%s\n", cpy_matrix[i]);
+// 		i++;
+// 	}
+// 	cpy_matrix[i] = NULL;
+// 	return (cpy_matrix);
+// }
