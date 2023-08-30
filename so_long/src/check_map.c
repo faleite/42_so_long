@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/30 17:52:57 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:20:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	**copy_map(char *file)
 		free(line);
 		ft_printf("\n%s", matrix[i]);
 		i++;
-
 	}
 	ft_printf("\n");
 	matrix[i] = NULL;
