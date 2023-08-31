@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/30 18:20:14 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:29:26 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,19 @@ char	**copy_map(char *file)
 	return (matrix);
 }
 
-// char	**copy_matrix(char **matrix)
+/* Algo errado */
+// void	copy_matrix(t_data *data)
 // {
 // 	int		i;
-// 	char	**cpy_matrix;
 
-// 	cpy_matrix = (char **)malloc(sizeof(cpy_matrix));
+// 	data->cpy_matrix = (char **)malloc(sizeof(data->matrix) + 1);
 // 	i = 0;
-// 	while (matrix[i] != NULL)
+// 	while (i != 6)
 // 	{
-// 		cpy_matrix[i] = ft_strdup(matrix[i]);
-// 		ft_printf("%s\n", cpy_matrix[i]);
+// 		data->cpy_matrix[i] = ft_strdup(data->matrix[i]);
+// 		ft_printf("%s\n", data->cpy_matrix[i]);
 // 		i++;
 // 	}
-// 	cpy_matrix[i] = NULL;
-// 	return (cpy_matrix);
+// 	data->cpy_matrix[i] = NULL;
 // }
+

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/27 21:03:31 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:30:02 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	err_case(char *msg);
 /* checks */
 int		check_type(char *str);
 char	**copy_map(char *file);
-char	**copy_matrix(char **matrix);
-
 
 /* window */
 int		destroy_window(t_data *data);
