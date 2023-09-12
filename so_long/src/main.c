@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/31 19:28:16 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:25:26 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char *argv[])
 		err_case("Error\nUse ./prog file.ber\n");
 	data.matrix = copy_map(argv[1]);
 	free_map(data.matrix);
-	data.cpy_matrix = copy_map(argv[1]);
-	free_map(data.cpy_matrix);
+	// data.cpy_matrix = copy_map(argv[1]);
+	// free_map(data.cpy_matrix);
 	if (check_type(argv[1]) == 0)
 		build_window();
 	return (0);

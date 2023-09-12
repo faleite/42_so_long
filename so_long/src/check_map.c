@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/31 19:29:26 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:26:55 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,47 +28,62 @@ int	check_type(char *str)
 	return (result);
 }
 
-char	**copy_map(char *file)
+int	check_wall(char *line)
 {
-	int		i;
-	int		fd;
-	char	*line;
-	char	**matrix;
+	int	i;
 
-	matrix = (char **)malloc(sizeof(matrix));
-	fd = open(file, O_RDONLY);
 	i = 0;
-	ft_printf("\nThis is a Map Matrix\n");
-	while (1)
+	while (line[i] != '\0')
 	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		matrix[i] = (char *)malloc(sizeof(char) * ft_strlen(line));
-		ft_strlcpy(matrix[i], line, ft_strlen(line));
-		free(line);
-		ft_printf("\n%s", matrix[i]);
-		i++;
+		if (line[i] == '1' || line[i] == '\n')
+			i++;
+		else
+			return (1);
 	}
-	ft_printf("\n");
-	matrix[i] = NULL;
-	close(fd);
-	return (matrix);
+	return (0);
 }
 
-/* Algo errado */
-// void	copy_matrix(t_data *data)
+int	check_side_wall(char *line)
+{
+	int	len;
+
+	len = ft_strlen(line);
+
+	if (line[0] == '1' && line[len - 1] == '1')
+		return (0);
+	return (1);
+}
+
+// int	check_map(char *file)
 // {
 // 	int		i;
+// 	int		fd;
+// 	char	*line;
 
-// 	data->cpy_matrix = (char **)malloc(sizeof(data->matrix) + 1);
+// 	fd = open(file, O_RDONLY);
 // 	i = 0;
-// 	while (i != 6)
+// 	while (1)
 // 	{
-// 		data->cpy_matrix[i] = ft_strdup(data->matrix[i]);
-// 		ft_printf("%s\n", data->cpy_matrix[i]);
+// 		line = get_next_line(fd);
+// 		if (check_wall(line) == 1)
+// 			return (1);
+// 		//ft_printf("Wall ok\n");
+// 		ft_printf("%s", line);
+// 		if (!line)
+// 			break ;
+// 		free(line);
 // 		i++;
 // 	}
-// 	data->cpy_matrix[i] = NULL;
+// 	close(fd);
+// 	return (0);
 // }
 
+// #include <stdio.h>
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	//printf("%d\n", check_side_wall(line));
+// 	ft_printf("%d", check_map("map.ber"));
+// 	return (0);
+// }
