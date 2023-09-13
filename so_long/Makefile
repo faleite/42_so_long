@@ -5,7 +5,7 @@
 # .SILENT:
 NAME		= so_long
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g # -fsanitize=address
 SRC_DIR		= src get_next_line
 FILES 		= $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
 OBJS		= $(FILES:.c=.o)
@@ -41,10 +41,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 
-		@make -C mlx_linux
-		clear
-		@make -C ft_printf
-		@make -C libft
+#		@make -C mlx_linux
+#		clear
+#		@make -C ft_printf
+#		@make -C libft
 		@echo "$(GREEN)Compiling of $(RED)$(NAME)...$(CLR_RESET)"
 		$(CC) $(CFLAGS) $(OBJS) $(PRINTF) $(LIBFT) $(MLX_L) -o $(NAME)
 		@echo "$(RED)$(NAME) $(GREEN)is ready!$(CLR_RESET)\n"
@@ -52,9 +52,9 @@ $(NAME): $(OBJS)
 
 clean:
 		$(RM) $(OBJS)
-		@make clean -C mlx_linux
-		@make clean -C ft_printf
-		@make clean -C libft
+#		@make clean -C mlx_linux
+#		@make clean -C ft_printf
+#		@make clean -C libft
 		clear
 		@echo "$(RED)$(NAME) object $(GREEN)files have been deleted.$(CLR_RESET)\n"
 
@@ -66,5 +66,9 @@ fclean: clean
 re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)\n"
 	@echo "$(PURPLE)====================================$(CLR_RESET)"
+
+
+v:
+	make re && clear && valgrind ./so_long maps/map.ber
 
 .PHONY: all clean fclean re

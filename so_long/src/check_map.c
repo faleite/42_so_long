@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/12 21:26:55 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:04:32 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	check_wall(char *line)
 	int	i;
 
 	i = 0;
-	while (line[i] != '\0')
+	while (i < data()->len)
 	{
-		if (line[i] == '1' || line[i] == '\n')
+		if (line[i] == '1')
 			i++;
 		else
 			return (1);
@@ -48,35 +48,27 @@ int	check_side_wall(char *line)
 	int	len;
 
 	len = ft_strlen(line);
-
+	len -= (line[len - 1] == '\n');
+	if (data()->len == 0)
+		data()->len = len;
 	if (line[0] == '1' && line[len - 1] == '1')
 		return (0);
 	return (1);
 }
 
-// int	check_map(char *file)
-// {
-// 	int		i;
-// 	int		fd;
-// 	char	*line;
+int	check_map(t_data *data)
+{
+	int		i;
 
-// 	fd = open(file, O_RDONLY);
-// 	i = 0;
-// 	while (1)
-// 	{
-// 		line = get_next_line(fd);
-// 		if (check_wall(line) == 1)
-// 			return (1);
-// 		//ft_printf("Wall ok\n");
-// 		ft_printf("%s", line);
-// 		if (!line)
-// 			break ;
-// 		free(line);
-// 		i++;
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+	i = 0;
+	while (data->matrix && data->matrix[i])
+	{
+		if (check_side_wall(data->matrix[i]))
+			err_case("Error\nThe map should only have a wall around it\n");
+		i++;
+	}
+	return (0);
+}
 
 // #include <stdio.h>
 // #include <string.h>

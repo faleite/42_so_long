@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:21:00 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/08/25 19:28:49 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:52:30 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 void	err_case(char *msg)
 {
 	ft_putstr_fd(msg, 2);
+	free_map(data()->matrix);
 	exit(EXIT_FAILURE);
 }
