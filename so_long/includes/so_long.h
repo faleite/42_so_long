@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/13 22:04:46 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:56:41 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,29 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**matrix;
-	int		len;
+	int		length;
+	int		height;
 }	t_data;
 
 /*  error  */
 void	err_case(char *msg);
-
+void	free_map(char **map);
 
 /* checks */
 int		check_type(char *str);
 int		check_wall(char *line);
 int		check_side_wall(char *line);
-int		check_map(t_data *data);
+int		check_map(void);
+int		check_len(char *line);
 char	**copy_map(char *file);
+void	heigth_map(void);
 
 /* structs */
-void	init_data(t_data **buff);
-void	init_structs(void);
+t_data	*data(void);
 
 /* window */
 int		destroy_window(t_data *data);
 int		on_keypress(int keycode, t_data *data);
 int		build_window(void);
-
-t_data	*data(void);
 
 #endif /* SO_LONG_H */

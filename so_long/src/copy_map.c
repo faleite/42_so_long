@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:07:32 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/13 22:03:27 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:35:00 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_line(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		err_case("Error\nFile Descriptor");
+		err_case("Error\nFile Descriptor (File not exist)\n");
 	len = 1;
 	while (1)
 	{
@@ -29,7 +29,7 @@ int	count_line(char *file)
 		if (read_line == 0)
 			break ;
 		if (read_line < 0)
-			err_case("Error\nFile Descriptor");
+			err_case("Error\nNot read (Empty file)\n");
 		if (c == '\n')
 			len++;
 	}
@@ -48,7 +48,7 @@ char	**copy_map(char *file)
 	matrix = malloc(sizeof(char *) * (count_line(file) + 1));
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		err_case("Error File Descriptor");
+		err_case("Error\nFile Descriptor (File not exist)\n");
 	i = 0;
 	while (1)
 	{
@@ -58,6 +58,7 @@ char	**copy_map(char *file)
 			break ;
 		i++;
 	}
+	free(line);
 	close(fd);
 	return (matrix);
 }

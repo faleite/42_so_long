@@ -24,6 +24,8 @@ janela, minimizando e assim por diante).
 programa de maneira limpa.
 5. O uso das imagens do MiniLibX é obrigatório.
 
+---
+
 ## Checagem do Mapa
 1. Mapa deve ser do tipo .ber, se não, exibir mensagem de erro
 2. So pode haver um mapa (argc == 2), se não, exibir mensagem de erro
