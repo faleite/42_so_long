@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/14 19:03:39 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/15 21:24:03 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ t_data	*data(void)
 	static t_data	d;
 
 	return (&d);
+}
+
+t_field	*field(void)
+{
+	static t_field	f;
+
+	return (&f);
 }
 
 /* 	if (check_type(argv[1]) == 0) */

@@ -5,7 +5,7 @@
 # .SILENT:
 NAME		= so_long
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g # -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
 SRC_DIR		= src get_next_line
 FILES 		= $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
 OBJS		= $(FILES:.c=.o)

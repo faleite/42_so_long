@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/14 21:01:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/15 22:04:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	check_type(char *str)
 	if (len <= 4)
 		err_case("Error\nThe map must be a valid format: file.ber\n");
 	map = ft_strchr(str, '.');
+	if (!map)
+		err_case("Error\nThe map must be a valid format: file.ber\n");
 	result = (ft_strncmp(map, ".ber", len));
 	if (result)
 		err_case("Error\nThe map must be a valid format: file.ber\n");
@@ -73,7 +75,6 @@ int	check_len(char *line)
 
 	len = ft_strlen(line);
 	len -= (line[len - 1] == '\n');
-	ft_printf("len map: %d\n", len);
 	if (len != data()->length)
 		return (1);
 	return (0);
