@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/17 12:45:20 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/17 14:39:01 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**matrix;
-	int		length;
-	int		height;
+	int		x_len;
+	int		y_len;
 }	t_data;
 
 typedef struct s_field

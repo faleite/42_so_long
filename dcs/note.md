@@ -52,7 +52,7 @@ de erro a sua escolha.*
   [<img align="center" src="./linhas.jpg" width="50%"/>](./linhas.jpg)
 
 - Mapas:
-```
+```about:blank#blocked
 1111111111111
 10010000000C1
 1000011111001
@@ -69,6 +69,24 @@ de erro a sua escolha.*
 1111111111111111111111111111111111
 ```
 
+## Flood Fill
+- Flood fill é um algoritmo de preenchimento de área. Ele é usado em programas\
+de pintura (como o Paint do Windows), em editores de imagem e em jogos\
+(geralmente para preencher áreas de uma cor com outra cor).
+- O algoritmo de preenchimento de área é um algoritmo recursivo que\
+verifica se um pixel está dentro de uma área e, se estiver, o preenche\
+com uma cor especificada. O algoritmo de preenchimento de área é\
+também conhecido como algoritmo de inundação.
+
+### Eixo do Mapa
+[<img align="center" src="./axis_yx.jpg" width="75%"/>](./axis_yx.jpg)
+
+
+### Links
+- [Video algorithm](https://www.youtube.com/watch?v=VuiXOc81UDM&t=141)
+
+---
+
 ## Function Hook
 ```c
 	// Escuta as teclas (keypress)
@@ -81,6 +99,7 @@ de erro a sua escolha.*
 	mlx_hook(data.win_ptr, 17, 0L, (int (*)(void *param))destroy_window, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, (int (*)(void *param))destroy_window, &data);
 ```
+---
 
 ## Bonus
  - Você ganhará pontos extras se:
