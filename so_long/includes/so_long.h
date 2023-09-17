@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/15 22:03:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:45:20 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ int		check_wall(char *line);
 int		check_side_wall(char *line);
 int		check_map(void);
 int		check_len(char *line);
+int		invalid_field(void);
 int		check_field(void);
+int		count_field(void);
 char	**copy_map(char *file);
 void	heigth_map(void);
-void	count_field(void);
 
 
 /* structs */
