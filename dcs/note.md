@@ -107,3 +107,119 @@ também conhecido como algoritmo de inundação.
   - Adicione alguma animação de sprite.
   - Exibir a contagem de movimentos diretamente na tela em vez de escrevê-la\
   no shell.
+
+## Flood fill
+O algoritmo de Flood Fill é uma técnica utilizada para preencher áreas conectadas em uma matriz ou em um gráfico com uma determinada cor ou valor. No contexto do projeto So Long da escola 42, o algoritmo de Flood Fill pode ser usado para verificar se o mapa é válido, ou seja, se é possível percorrer o mapa do início ao fim sem obstáculos.
+
+Aqui está uma visão geral de como você pode usar o algoritmo de Flood Fill para verificar o mapa no projeto So Long:
+
+Definir a função Flood Fill: Comece definindo uma função de Flood Fill que irá percorrer o mapa. A função deve receber a posição atual, o mapa e as informações necessárias para verificar se uma célula é válida (por exemplo, se é uma parede ou espaço vazio).
+
+```c
+int flood_fill(int x, int y, char **map, int map_width, int map_height)
+{
+    // Verificar se (x, y) está fora dos limites do mapa
+    if (x < 0 || x >= map_width || y < 0 || y >= map_height)
+        return (0);
+
+    // Verificar se (x, y) é uma parede ou um obstáculo
+    if (map[y][x] == '1' || map[y][x] == 'E')
+        return (0);
+
+    // Marcar a célula como visitada (opcional, dependendo dos requisitos do projeto)
+    map[y][x] = 'V'; // 'V' para visitado
+
+    // Realizar Flood Fill recursivamente para as células vizinhas
+    int result = flood_fill(x + 1, y, map, map_width, map_height) +
+                 flood_fill(x - 1, y, map, map_width, map_height) +
+                 flood_fill(x, y + 1, map, map_width, map_height) +
+                 flood_fill(x, y - 1, map, map_width, map_height);
+
+    return (result);
+}
+```
+```c
+void	fill(char **tab, t_point size, t_point cur, char to_fill)
+{
+	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
+		|| tab[cur.y][cur.x] != to_fill)
+		return;
+
+	tab[cur.y][cur.x] = 'F';
+	fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
+	fill(tab, size, (t_point){cur.x + 1, cur.y}, to_fill);
+	fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
+	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
+}
+
+void	flood_fill(char **tab, t_point size, t_point begin)
+{
+	fill(tab, size, begin, tab[begin.y][begin.x]);
+}
+```
+
+Chamando o Flood Fill: Agora, chame a função de Flood Fill para verificar se é possível percorrer o mapa do início (posição do jogador 'P') até o final (posição da saída 'E'). Isso envolve encontrar a posição inicial ('P') no mapa e, em seguida, chamar o Flood Fill a partir dessa posição.
+
+```c
+int validate_map(char **map, int map_width, int map_height)
+{
+    int x_start = -1, y_start = -1;
+
+    // Encontrar a posição inicial ('P') no mapa
+    for (int y = 0; y < map_height; y++)
+    {
+        for (int x = 0; x < map_width; x++)
+        {
+            if (map[y][x] == 'P')
+            {
+                x_start = x;
+                y_start = y;
+                break;
+            }
+        }
+    }
+
+    // Se não encontrou uma posição inicial, o mapa é inválido
+    if (x_start == -1 || y_start == -1)
+        return (0);
+
+    // Chamar o Flood Fill a partir da posição inicial
+    int result = flood_fill(x_start, y_start, map, map_width, map_height);
+
+    // Verificar se o Flood Fill cobriu todo o mapa (ou seja, todos os espaços vazios)
+    for (int y = 0; y < map_height; y++)
+    {
+        for (int x = 0; x < map_width; x++)
+        {
+            if (map[y][x] == '0') // '0' representa um espaço vazio
+                return (0);       // Se houver um espaço não visitado, o mapa é inválido
+        }
+    }
+
+    return (result); // Se o resultado for maior que zero, o mapa é válido
+}
+```c
+
+Chamando a Função de Validação: Em sua função principal (main), você pode chamar a função validate_map para verificar se o mapa é válido.
+
+```c
+int main(int argc, char *argv[])
+{
+    // Carregar o mapa e obter as dimensões do mapa (map_width e map_height)
+
+    if (validate_map(map, map_width, map_height))
+    {
+        printf("Map is valid.\n");
+        // Continue com a lógica do jogo...
+    }
+    else
+    {
+        printf("Map is invalid.\n");
+        // Trate o mapa inválido de acordo com os requisitos do projeto
+    }
+
+    // Liberar recursos e encerrar o programa
+    return 0;
+}
+```
+Certifique-se de que seu projeto do So Long esteja configurado corretamente para carregar o mapa em uma matriz antes de chamar a função validate_map. A função validate_map verificará se é possível percorrer o mapa sem encontrar paredes ('1') ou áreas inacessíveis, e se a saída ('E') é alcançável a partir da posição do jogador ('P'). Se todas essas condições forem atendidas, o mapa será considerado válido para o jogo.

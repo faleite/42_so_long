@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/17 14:38:44 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:27:42 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ int	check_map(void)
 
 	i = 0;
 	heigth_map();
-	if (!data()->matrix[i])
+	if (!map()->matrix[i])
 		err_case("Error\nThe map is not a valid map\n");
-	while (data()->matrix && data()->matrix[i])
+	while (map()->matrix && map()->matrix[i])
 	{
-		if (check_side_wall(data()->matrix[i]))
+		if (check_side_wall(map()->matrix[i]))
 			err_case("Error\nThe map should have a wall around it\n");
-		if (check_wall(data()->matrix[0])
-			|| check_wall(data()->matrix[data()->y_len - 1]))
+		if (check_wall(map()->matrix[0])
+			|| check_wall(map()->matrix[map()->y_len - 1]))
 			err_case("Error\nThe map should have a valid wall around it\n");
-		if ((i > 0 && i < data()->y_len - 1) && !check_wall(data()->matrix[i]))
+		if ((i > 0 && i < map()->y_len - 1) && !check_wall(map()->matrix[i]))
 			err_case("Error\nInside the map should not have a wall closed\n");
-		if (data()->y_len < 3)
+		if (map()->y_len < 3)
 			err_case("Error\nThe map is not a valid map\n");
-		if (check_len(data()->matrix[i]))
+		if (check_len(map()->matrix[i]))
 			err_case("Error\nThe map is not a type of rectangle\n");
 		i++;
 	}
@@ -48,14 +48,14 @@ int	invalid_field(void)
 
 	i = 0;
 	other = 0;
-	while (data()->matrix && data()->matrix[i])
+	while (map()->matrix && map()->matrix[i])
 	{
 		j = 0;
-		while (data()->matrix[i][j])
+		while (map()->matrix[i][j])
 		{
-			if (data()->matrix[i][j] != 'E' && data()->matrix[i][j] != 'P'
-				&& data()->matrix[i][j] != 'C' && data()->matrix[i][j] != '1'
-				&& data()->matrix[i][j] != '0' && data()->matrix[i][j] != '\n')
+			if (map()->matrix[i][j] != 'E' && map()->matrix[i][j] != 'P'
+				&& map()->matrix[i][j] != 'C' && map()->matrix[i][j] != '1'
+				&& map()->matrix[i][j] != '0' && map()->matrix[i][j] != '\n')
 				other++;
 			j++;
 		}
@@ -72,16 +72,16 @@ int	count_field(void)
 	i = 0;
 	if (invalid_field())
 		return (1);
-	while (data()->matrix && data()->matrix[i])
+	while (map()->matrix && map()->matrix[i])
 	{
 		j = 0;
-		while (data()->matrix[i][j])
+		while (map()->matrix[i][j])
 		{
-			if (data()->matrix[i][j] == 'E')
+			if (map()->matrix[i][j] == 'E')
 				field()->out++;
-			if (data()->matrix[i][j] == 'P')
+			if (map()->matrix[i][j] == 'P')
 				field()->player++;
-			if (data()->matrix[i][j] == 'C')
+			if (map()->matrix[i][j] == 'C')
 				field()->collect++;
 			j++;
 		}
