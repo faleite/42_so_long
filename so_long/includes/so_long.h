@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/18 21:45:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/19 21:34:58 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_map
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**matrix;
-	char	**cp_map;
 	int		x_len;
 	int		y_len;
 }	t_map;
@@ -57,14 +56,16 @@ int		check_len(char *line);
 int		invalid_field(void);
 int		check_field(void);
 int		count_field(void);
-int		find_player(void);
-int		validate_map(void);
+// int		validate_map(void);
+int		playable_map(void);
+int		check_fill(char **matrix, int x, int y);
 char	**copy_map(char *file);
 void	heigth_map(void);
-void	flood_fill(int y, int x, char **matrix);
+void	find_player(void);
+void	flood_fill(char **matrix, int x, int y);
 
 
-/* structs */
+/* structs init */
 t_map	*map(void);
 t_field	*field(void);
 

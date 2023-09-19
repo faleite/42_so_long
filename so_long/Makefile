@@ -69,6 +69,6 @@ re: fclean all
 
 
 v:
-	make re && clear && valgrind ./so_long maps/map.ber
+	make re && clear && valgrind --leak-check=full --show-leak-kinds=all ./so_long maps/map.ber
 
 .PHONY: all clean fclean re
