@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/18 18:30:17 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:59:41 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int	check_side_wall(char *line)
 
 	len = ft_strlen(line);
 	len -= (line[len - 1] == '\n');
-	if (map()->x_len == 0)
-		map()->x_len = len;
+	if (len >= 60)
+		err_case("Error\nThe map is not the ideal size for the screen\n");
+	if (map()->size_x == 0)
+		map()->size_x = len;
 	if (line[0] == '1' && line[len - 1] == '1')
 		return (0);
 	return (1);
@@ -48,7 +50,7 @@ int	check_wall(char *line)
 	int	i;
 
 	i = 0;
-	while (i < map()->x_len)
+	while (i < map()->size_x)
 	{
 		if (line[i] == '1')
 			i++;
@@ -65,8 +67,10 @@ void	heigth_map(void)
 	i = 0;
 	while (map()->matrix && map()->matrix[i])
 		i++;
-	if (map()->y_len == 0)
-		map()->y_len = i;
+	if (i > 32)
+		err_case("Error\nThe map is not the ideal size for the screen\n");
+	if (map()->size_y == 0)
+		map()->size_y = i;
 }
 
 int	check_len(char *line)
@@ -75,7 +79,7 @@ int	check_len(char *line)
 
 	len = ft_strlen(line);
 	len -= (line[len - 1] == '\n');
-	if (len != map()->x_len)
+	if (len != map()->size_x)
 		return (1);
 	return (0);
 }

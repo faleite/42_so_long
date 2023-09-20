@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:33:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/19 20:56:32 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:22:22 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	find_player(void)
 	int	y;
 
 	y = 0;
-	while (y < map()->y_len)
+	while (y < map()->size_y)
 	{
 		x = 0;
-		while (x < map()->x_len)
+		while (x < map()->size_x)
 		{
 			if (map()->matrix[y][x] == 'P')
 			{
@@ -52,7 +52,7 @@ void	flood_fill(char **matrix, int x, int y)
 
 int	check_fill(char **matrix, int x, int y)
 {
-	if (y < 0 || y >= map()->y_len || x < 0 || x >= map()->x_len)
+	if (y < 0 || y >= map()->size_y || x < 0 || x >= map()->size_x)
 		return (0);
 	if (matrix[y][x] == 'E')
 		matrix[y][x] = '1';
@@ -72,10 +72,10 @@ int	playable_map(void)
 	find_player();
 	flood_fill(map()->matrix, field()->x_player, field()->y_player);
 	y = 0;
-	while (y < map()->y_len)
+	while (y < map()->size_y)
 	{
 		x = 0;
-		while (x < map()->x_len)
+		while (x < map()->size_x)
 		{
 			if (map()->matrix[y][x] != '1' && map()->matrix[y][x] != '_')
 				return (1);				

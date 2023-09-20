@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/18 18:27:42 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:30:43 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	check_map(void)
 		if (check_side_wall(map()->matrix[i]))
 			err_case("Error\nThe map should have a wall around it\n");
 		if (check_wall(map()->matrix[0])
-			|| check_wall(map()->matrix[map()->y_len - 1]))
+			|| check_wall(map()->matrix[map()->size_y - 1]))
 			err_case("Error\nThe map should have a valid wall around it\n");
-		if ((i > 0 && i < map()->y_len - 1) && !check_wall(map()->matrix[i]))
+		if ((i > 0 && i < map()->size_y - 1) && !check_wall(map()->matrix[i]))
 			err_case("Error\nInside the map should not have a wall closed\n");
-		if (map()->y_len < 3)
+		if (map()->size_y < 3)
 			err_case("Error\nThe map is not a valid map\n");
 		if (check_len(map()->matrix[i]))
 			err_case("Error\nThe map is not a type of rectangle\n");

@@ -6,12 +6,15 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/19 21:34:58 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/20 21:44:57 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define PX 32
+# define PATH "../images/soimage.xpm"
 
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
@@ -28,9 +31,10 @@ typedef struct s_map
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	void	*img_ptr;
 	char	**matrix;
-	int		x_len;
-	int		y_len;
+	int		size_x;
+	int		size_y;
 }	t_map;
 
 typedef struct s_field
