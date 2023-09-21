@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:07:32 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/15 22:04:38 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:07:15 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	count_line(char *file)
 	close(fd);
 	return (len);
 }
-
 
 char	**copy_map(char *file)
 {

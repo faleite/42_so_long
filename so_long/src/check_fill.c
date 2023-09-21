@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:33:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/20 17:22:22 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:11:53 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	flood_fill(char **matrix, int x, int y)
 	if (check_fill(matrix, x, y - 1))
 		flood_fill(matrix, x, y - 1);
 	if (check_fill(matrix, x, y + 1))
-		flood_fill(matrix, x, y + 1);	
+		flood_fill(matrix, x, y + 1);
 }
 
 int	check_fill(char **matrix, int x, int y)
@@ -78,7 +78,7 @@ int	playable_map(void)
 		while (x < map()->size_x)
 		{
 			if (map()->matrix[y][x] != '1' && map()->matrix[y][x] != '_')
-				return (1);				
+				return (1);
 			x++;
 		}
 		y++;

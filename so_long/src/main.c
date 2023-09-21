@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/19 21:43:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:01:13 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	validate_map(int argc, char *argv)
 		err_case("Error\nThe map is not valid\n");
 	free_map(map()->matrix);
 }
-
 
 /* 	if (check_type(argv[1]) == 0) */
 /*		build_window(); */

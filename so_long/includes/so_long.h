@@ -6,15 +6,16 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/20 21:44:57 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/21 21:31:43 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define PX 32
-# define PATH "../images/soimage.xpm"
+# define PX 64
+# define WALL "./images/wall.xpm"
+# define FLOOR "./images/floor.xpm"
 
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
@@ -31,7 +32,6 @@ typedef struct s_map
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_ptr;
 	char	**matrix;
 	int		size_x;
 	int		size_y;
@@ -46,6 +46,14 @@ typedef struct s_field
 	int		y_player;
 }	t_field;
 
+typedef struct s_img
+{
+	void	*wall;
+	void	*floor;
+	void	*portal;
+	void	*diamond;
+	void	*warrior;
+}	t_img;
 
 /*  error  */
 void	err_case(char *msg);
@@ -68,7 +76,6 @@ void	heigth_map(void);
 void	find_player(void);
 void	flood_fill(char **matrix, int x, int y);
 
-
 /* structs init */
 t_map	*map(void);
 t_field	*field(void);
@@ -76,6 +83,6 @@ t_field	*field(void);
 /* window */
 int		destroy_window(t_map *map);
 int		on_keypress(int keycode, t_map *map);
-int		build_window(void);
+int	build_window(void);
 
 #endif /* SO_LONG_H */
