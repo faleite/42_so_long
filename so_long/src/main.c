@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:34:35 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/21 19:01:13 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/22 20:41:45 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	validate_map(int argc, char *argv)
 	if (playable_map())
 		err_case("Error\nThe map is not valid\n");
 	free_map(map()->matrix);
+	map()->matrix = copy_map(argv);
 }
 
 /* 	if (check_type(argv[1]) == 0) */
@@ -29,8 +30,7 @@ void	validate_map(int argc, char *argv)
 int	main(int argc, char *argv[])
 {
 	validate_map(argc, argv[1]);
-	map()->matrix = copy_map(argv[1]);
-	free_map(map()->matrix);
 	build_window();
+	free_map(map()->matrix);
 	return (0);
 }

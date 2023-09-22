@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:21:00 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/20 19:01:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/22 20:45:41 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ t_field	*field(void)
 	static t_field	f;
 
 	return (&f);
+}
+
+t_img	*img(void)
+{
+	static t_img	i;
+
+	return (&i);
 }
 
 void	free_map(char **map)

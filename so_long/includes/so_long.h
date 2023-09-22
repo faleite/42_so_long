@@ -6,14 +6,14 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/21 21:31:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/22 21:56:39 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define PX 64
+# define SIZE 64
 # define WALL "./images/wall.xpm"
 # define FLOOR "./images/floor.xpm"
 
@@ -33,6 +33,8 @@ typedef struct s_map
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**matrix;
+	int		x;
+	int		y;
 	int		size_x;
 	int		size_y;
 }	t_map;
@@ -68,6 +70,7 @@ int		check_len(char *line);
 int		invalid_field(void);
 int		check_field(void);
 int		count_field(void);
+
 // int		validate_map(void);
 int		playable_map(void);
 int		check_fill(char **matrix, int x, int y);
@@ -78,11 +81,16 @@ void	flood_fill(char **matrix, int x, int y);
 
 /* structs init */
 t_map	*map(void);
+t_img	*img(void);
 t_field	*field(void);
 
 /* window */
-int		destroy_window(t_map *map);
-int		on_keypress(int keycode, t_map *map);
-int	build_window(void);
+int		destroy_window(void);
+int		on_keypress(int keycode);
+int		build_window(void);
+void	*file_to_image(char *path);
+void	image_to_window(void *image, int x, int y);
+void	get_image(void);
+void	put_image(void);
 
 #endif /* SO_LONG_H */

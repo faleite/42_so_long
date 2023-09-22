@@ -6,26 +6,26 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:44:31 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/21 21:36:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/22 21:44:15 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	destroy_window(t_map *map)
+int	destroy_window(void)
 {
-	mlx_destroy_window(map->mlx_ptr, map->win_ptr);
-	mlx_destroy_display(map->mlx_ptr);
-	free(map->mlx_ptr);
+	mlx_destroy_window(map()->mlx_ptr, map()->win_ptr);
+	mlx_destroy_display(map()->mlx_ptr);
+	free(map()->mlx_ptr);
 	exit(0);
 }
 
-int	on_keypress(int keycode, t_map *map)
+int	on_keypress(int keycode)
 {
 	if (keycode == 65307)
 	{
 		ft_printf("The %d key (ESC) has been pressed\n\n", keycode);
-		destroy_window(map);
+		destroy_window();
 		exit(1);
 	}
 	ft_printf("The %d key has been pressed\n\n", keycode);
@@ -34,24 +34,27 @@ int	on_keypress(int keycode, t_map *map)
 
 int	build_window(void)
 {
-	t_map	data;
-	void	*img;
-	int width;
-	int height;
+	void	*window;
 
-	data.mlx_ptr = mlx_init();
-	if (!data.mlx_ptr)
+	map()->mlx_ptr = mlx_init();
+	if (!map()->mlx_ptr)
 		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, map()->size_x * PX,
-			map()->size_y * PX, "./so_long");
-	if (!data.win_ptr)
+	window = mlx_new_window(map()->mlx_ptr,
+			map()->size_x * SIZE,
+			map()->size_y * SIZE,
+			"./so_long");
+	map()->win_ptr = window;
+	if (!map()->win_ptr)
 	{
-		mlx_destroy_display(data.mlx_ptr);
-		free(data.mlx_ptr);
+		mlx_destroy_display(map()->mlx_ptr);
+		free(map()->mlx_ptr);
 		return (1);
 	}
-	mlx_hook(data.win_ptr, 2, 1L, on_keypress, &data);
-	mlx_hook(data.win_ptr, 17, 0L, (int (*)(void *param))destroy_window, &data);
-	mlx_loop(data.mlx_ptr);
+	get_image();
+	put_image();
+	mlx_hook(map()->win_ptr, 2, 1L, on_keypress, map());
+	mlx_hook(map()->win_ptr, 17, 0L,
+		(int (*)(void *param))destroy_window, map());
+	mlx_loop(map()->mlx_ptr);
 	return (0);
 }
