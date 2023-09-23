@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:54:33 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/20 17:30:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/23 20:44:29 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,17 @@ int	check_field(void)
 	if (field()->collect < 1)
 		err_case("Error\nThere must be at least one collectible in this game\n");
 	return (0);
+}
+
+void	validate_map(int argc, char *argv)
+{
+	if (argc != 2)
+		err_case("Error\nUse ./prog file.ber\n");
+	check_type(argv);
+	map()->matrix = copy_map(argv);
+	check_map();
+	if (playable_map())
+		err_case("Error\nThe map is not valid\n");
+	free_map(map()->matrix);
+	map()->matrix = copy_map(argv);
 }
