@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:21:27 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/22 21:52:17 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/23 20:17:23 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	get_image(void)
 {
 	img()->floor = file_to_image(FLOOR);
 	img()->wall = file_to_image(WALL);
+	img()->exit = file_to_image(EXIT);
+	img()->crystal = file_to_image(CRYSTAL);
+	img()->player = file_to_image(PLAYER);
 }
 
 void	put_image(void)
@@ -55,6 +58,12 @@ void	put_image(void)
 				image_to_window(img()->floor, y, x);
 			else if (map()->matrix[x][y] == '1')
 				image_to_window(img()->wall, y, x);
+			else if (map()->matrix[x][y] == 'P')
+				image_to_window(img()->player, y, x);
+			else if (map()->matrix[x][y] == 'E')
+				image_to_window(img()->exit, y, x);
+			else if (map()->matrix[x][y] == 'C')
+				image_to_window(img()->crystal, y, x);
 			y++;
 		}
 		x++;

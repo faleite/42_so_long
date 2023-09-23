@@ -6,16 +6,19 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/22 21:56:39 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/23 20:16:08 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define SIZE 64
+# define SIZE 32
 # define WALL "./images/wall.xpm"
 # define FLOOR "./images/floor.xpm"
+# define EXIT "./images/exit.xpm"
+# define CRYSTAL "./images/crystal.xpm"
+# define PLAYER "./images/player.xpm"
 
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
@@ -52,9 +55,9 @@ typedef struct s_img
 {
 	void	*wall;
 	void	*floor;
-	void	*portal;
-	void	*diamond;
-	void	*warrior;
+	void	*exit;
+	void	*crystal;
+	void	*player;
 }	t_img;
 
 /*  error  */
