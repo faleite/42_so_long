@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:33:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/21 17:11:53 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/25 18:54:11 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	find_player(void)
 		{
 			if (map()->matrix[y][x] == 'P')
 			{
-				if (!field()->x_player && !field()->y_player)
+				if (!field()->x_p && !field()->y_p)
 				{
-					field()->x_player = x;
-					field()->y_player = y;
+					field()->x_p = x;
+					field()->y_p = y;
 				}
 				break ;
 			}
@@ -70,7 +70,7 @@ int	playable_map(void)
 	int	y;
 
 	find_player();
-	flood_fill(map()->matrix, field()->x_player, field()->y_player);
+	flood_fill(map()->matrix, field()->x_p, field()->y_p);
 	y = 0;
 	while (y < map()->size_y)
 	{

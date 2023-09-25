@@ -6,6 +6,15 @@ depois escapar escolhendo o caminho mais curto possível.
 2. As teclas W, A, S e D devem ser usadas para mover o personagem principal.
   - Se preferir, você pode usar ZQSD ou as teclas de seta do teclado para mover\
 seu personagem principal.
+  - keycode:
+    - W = 119
+	- A = 97
+	- S = 115
+	- D = 100
+	- Up = 65362
+	- Down = 65364
+	- Left = 65361
+	- Right = 65363
 3. O jogador deve ser capaz de se mover nestas 4 direções: para cima, para\
 baixo, para a esquerda, para a direita.
 4. O jogador não deve ser capaz de se mover contra paredes.

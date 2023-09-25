@@ -6,13 +6,14 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/23 20:16:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/25 21:46:02 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+/* images */
 # define SIZE 32
 # define WALL "./images/wall.xpm"
 # define FLOOR "./images/floor.xpm"
@@ -20,6 +21,18 @@
 # define CRYSTAL "./images/crystal.xpm"
 # define PLAYER "./images/player.xpm"
 
+/* keycode */
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define ESC 65307
+
+/* includes */
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
 # include "../get_next_line/get_next_line.h"
@@ -47,8 +60,9 @@ typedef struct s_field
 	int		out;
 	int		collect;
 	int		player;
-	int		x_player;
-	int		y_player;
+	int		x_p;
+	int		y_p;
+	int		moves;
 }	t_field;
 
 typedef struct s_img
@@ -89,11 +103,19 @@ t_field	*field(void);
 
 /* window */
 int		destroy_window(void);
+int		destroy_image(void);
 int		on_keypress(int keycode);
 int		build_window(void);
 void	*file_to_image(char *path);
 void	image_to_window(void *image, int x, int y);
 void	get_image(void);
 void	put_image(void);
+
+/* game */
+void	moves(int keycode);
+void	move_up(void);
+void	move_down(void);
+void	move_left(void);
+void	move_right(void);
 
 #endif /* SO_LONG_H */
