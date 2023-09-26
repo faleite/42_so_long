@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/25 21:46:02 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/26 21:15:52 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 # define FLOOR "./images/floor.xpm"
 # define EXIT "./images/exit.xpm"
 # define CRYSTAL "./images/crystal.xpm"
-# define PLAYER "./images/player.xpm"
+# define P_UP "./images/p_up.xpm"
+# define P_DOWN "./images/p_down.xpm"
+# define P_LEFT "./images/p_left.xpm"
+# define P_RIGHT "./images/p_right.xpm"
 
 /* keycode */
 # define W 119
@@ -59,6 +62,8 @@ typedef struct s_field
 {
 	int		out;
 	int		collect;
+	int		collect_2;
+	int		exit_2;
 	int		player;
 	int		x_p;
 	int		y_p;
@@ -71,7 +76,10 @@ typedef struct s_img
 	void	*floor;
 	void	*exit;
 	void	*crystal;
-	void	*player;
+	void	*p_up;
+	void	*p_down;
+	void	*p_left;
+	void	*p_right;
 }	t_img;
 
 /*  error  */

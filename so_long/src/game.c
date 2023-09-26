@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:20:48 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/25 22:10:18 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:55:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,68 +30,104 @@ void	moves(int keycode)
 
 void	move_up(void)
 {
-	if (map()->matrix[field()->y_p - 1][field()->x_p] != '1'
-	&& map()->matrix[field()->y_p - 1][field()->x_p] != 'E')
+	if (map()->matrix[field()->y_p - 1][field()->x_p] != '1')
 	{
 		if (map()->matrix[field()->y_p - 1][field()->x_p] == 'C')
 		{
 			map()->matrix[field()->y_p - 1][field()->x_p] = '0';
 			field()->collect--;
 		}
-		field()->y_p--;
-		image_to_window(img()->floor, field()->x_p, field()->y_p + 1);
-		image_to_window(img()->player, field()->x_p, field()->y_p);
-		ft_printf("Moves: %d\n", field()->moves++);
+		if (field()->collect == 0 && map()->matrix[field()->y_p - 1][field()->x_p] == 'E')
+		{
+			image_to_window(img()->floor, field()->x_p, field()->y_p + 1);
+			image_to_window(img()->p_up, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+			destroy_window();
+		}
+		if (map()->matrix[field()->y_p - 1][field()->x_p] != 'E')
+		{
+			field()->y_p--;
+			image_to_window(img()->floor, field()->x_p, field()->y_p + 1);
+			image_to_window(img()->p_up, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+		}
 	}
 }
 
 void	move_down(void)
 {
-	if (map()->matrix[field()->y_p + 1][field()->x_p] != '1'
-	&& map()->matrix[field()->y_p + 1][field()->x_p] != 'E')
+	if (map()->matrix[field()->y_p + 1][field()->x_p] != '1')
 	{
 		if (map()->matrix[field()->y_p + 1][field()->x_p] == 'C')
 		{
 			map()->matrix[field()->y_p + 1][field()->x_p] = '0';
 			field()->collect--;
 		}
-		field()->y_p++;
-		image_to_window(img()->floor, field()->x_p, field()->y_p - 1);
-		image_to_window(img()->player, field()->x_p, field()->y_p);
-		ft_printf("Moves: %d\n", field()->moves++);
+		if (field()->collect == 0 && map()->matrix[field()->y_p + 1][field()->x_p] == 'E')
+		{
+			image_to_window(img()->floor, field()->x_p, field()->y_p - 1);
+			image_to_window(img()->p_down, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+			destroy_window();
+		}
+		if (map()->matrix[field()->y_p + 1][field()->x_p] != 'E')
+		{
+			field()->y_p++;
+			image_to_window(img()->floor, field()->x_p, field()->y_p - 1);
+			image_to_window(img()->p_down, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+		}
 	}
 }
 
 void	move_right(void)
 {
-	if (map()->matrix[field()->y_p][field()->x_p + 1] != '1'
-	&& map()->matrix[field()->y_p][field()->x_p + 1] != 'E')
+	if (map()->matrix[field()->y_p][field()->x_p + 1] != '1')
 	{
 		if (map()->matrix[field()->y_p][field()->x_p + 1] == 'C')
 		{
 			map()->matrix[field()->y_p][field()->x_p + 1] = '0';
 			field()->collect--;
 		}
-		field()->x_p++;
-		image_to_window(img()->floor, field()->x_p - 1, field()->y_p);
-		image_to_window(img()->player, field()->x_p, field()->y_p);
-		ft_printf("Moves: %d\n", field()->moves++);
+		if (field()->collect == 0 && map()->matrix[field()->y_p][field()->x_p + 1] == 'E')
+		{
+			image_to_window(img()->floor, field()->x_p - 1, field()->y_p);
+			image_to_window(img()->p_right, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+			destroy_window();
+		}
+		if (map()->matrix[field()->y_p][field()->x_p + 1] != 'E')
+		{
+			field()->x_p++;
+			image_to_window(img()->floor, field()->x_p - 1, field()->y_p);
+			image_to_window(img()->p_right, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+		}
 	}
 }
 
 void	move_left(void)
 {
-	if (map()->matrix[field()->y_p][field()->x_p - 1] != '1'
-	&& map()->matrix[field()->y_p][field()->x_p - 1] != 'E')
+	if (map()->matrix[field()->y_p][field()->x_p - 1] != '1')
 	{
 		if (map()->matrix[field()->y_p][field()->x_p - 1] == 'C')
 		{
 			map()->matrix[field()->y_p][field()->x_p - 1] = '0';
 			field()->collect--;
 		}
-		field()->x_p--;
-		image_to_window(img()->floor, field()->x_p + 1, field()->y_p);
-		image_to_window(img()->player, field()->x_p, field()->y_p);
-		ft_printf("Moves: %d\n", field()->moves++);
+		if (field()->collect == 0 && map()->matrix[field()->y_p][field()->x_p - 1] == 'E')
+		{
+			image_to_window(img()->floor, field()->x_p + 1, field()->y_p);
+			image_to_window(img()->p_left, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+			destroy_window();
+		}
+		if (map()->matrix[field()->y_p][field()->x_p - 1] != 'E')
+		{
+			field()->x_p--;
+			image_to_window(img()->floor, field()->x_p + 1, field()->y_p);
+			image_to_window(img()->p_left, field()->x_p, field()->y_p);
+			ft_printf("Moves: %d\n", field()->moves++);
+		}
 	}
 }
