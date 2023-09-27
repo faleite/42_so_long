@@ -60,8 +60,12 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
+		$(RM) $(PRINTF)
+		$(RM) $(LIBFT)
 		clear
 		@echo "$(RED)$(NAME) $(GREEN)has been deleted.$(CLR_RESET)\n"
+		@echo "$(RED)printf $(GREEN)has been deleted.$(CLR_RESET)\n"
+		@echo "$(RED)libft $(GREEN)has been deleted.$(CLR_RESET)\n"
 
 re: fclean all
 	@echo "$(RED)$(NAME) $(GREEN)has been recompiled.$(CLR_RESET)\n"

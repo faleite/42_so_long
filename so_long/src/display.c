@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:37:37 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/27 20:41:30 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:22:06 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	display(void)
 	image_to_window(img()->wall, 2, 0);
 	mlx_string_put(map()->mlx_ptr, map()->win_ptr, 10, 12, 0x00FF00, "Moves: ");
 	mlx_string_put(map()->mlx_ptr, map()->win_ptr, 67, 12, 0x00FF00, str1);
-	mlx_string_put(map()->mlx_ptr, map()->win_ptr, 10, 26, 0x00FF00, "Diamonds:  ");
+	mlx_string_put(map()->mlx_ptr, map()->win_ptr, 10, 26, \
+	0x00FF00, "Diamonds:  ");
 	mlx_string_put(map()->mlx_ptr, map()->win_ptr, 67, 26, 0x00FF00, str2);
 	free(str1);
 	free(str2);
