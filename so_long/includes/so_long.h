@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:13:08 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/26 21:15:52 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:35:21 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_field
 	int		out;
 	int		collect;
 	int		collect_2;
+	int		diamond;
 	int		exit_2;
 	int		player;
 	int		x_p;
@@ -96,7 +97,7 @@ int		invalid_field(void);
 int		check_field(void);
 int		count_field(void);
 
-// int		validate_map(void);
+void	validate_map(int argc, char *argv);
 int		playable_map(void);
 int		check_fill(char **matrix, int x, int y);
 char	**copy_map(char *file);
@@ -112,12 +113,13 @@ t_field	*field(void);
 /* window */
 int		destroy_window(void);
 int		destroy_image(void);
-int		on_keypress(int keycode);
 int		build_window(void);
 void	*file_to_image(char *path);
 void	image_to_window(void *image, int x, int y);
 void	get_image(void);
 void	put_image(void);
+void	image_error(void);
+void	display(void);
 
 /* game */
 void	moves(int keycode);

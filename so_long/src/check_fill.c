@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:33:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/26 21:16:55 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:21:37 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	check_fill(char **matrix, int x, int y)
 	if (matrix[y][x] == 'C')
 		field()->collect_2++;
 	matrix[y][x] = '_';
-
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:44:31 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/26 20:58:42 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:24:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,10 @@ int	build_window(void)
 	}
 	get_image();
 	put_image();
-	mlx_hook(map()->win_ptr, 2, 1L, moves, map());
+	mlx_hook(map()->win_ptr, 2, 1L, (void *) moves, map());
 	mlx_hook(map()->win_ptr, 17, 0L,
 		(int (*)(void *param))destroy_window, map());
 	mlx_loop(map()->mlx_ptr);
-	return (0);
-}
-
-int	on_keypress(int keycode)
-{
-	if (keycode == ESC)
-	{
-		ft_printf("The %d key (ESC) has been pressed\n\n", keycode);
-		destroy_window();
-		exit(1);
-	}
-	ft_printf("The %d key has been pressed\n\n", keycode);
 	return (0);
 }
 
@@ -63,12 +51,21 @@ int	destroy_window(void)
 
 int	destroy_image(void)
 {
-	mlx_destroy_image(map()->mlx_ptr, img()->wall);
-	mlx_destroy_image(map()->mlx_ptr, img()->floor);
-	mlx_destroy_image(map()->mlx_ptr, img()->exit);
-	mlx_destroy_image(map()->mlx_ptr, img()->crystal);
-	mlx_destroy_image(map()->mlx_ptr, img()->p_up);
-	mlx_destroy_image(map()->mlx_ptr, img()->p_down);
-	mlx_destroy_image(map()->mlx_ptr, img()->p_left);
-	mlx_destroy_image(map()->mlx_ptr, img()->p_right);
+	if (img()->wall)
+		mlx_destroy_image(map()->mlx_ptr, img()->wall);
+	if (img()->floor)
+		mlx_destroy_image(map()->mlx_ptr, img()->floor);
+	if (img()->exit)
+		mlx_destroy_image(map()->mlx_ptr, img()->exit);
+	if (img()->crystal)
+		mlx_destroy_image(map()->mlx_ptr, img()->crystal);
+	if (img()->p_up)
+		mlx_destroy_image(map()->mlx_ptr, img()->p_up);
+	if (img()->p_down)
+		mlx_destroy_image(map()->mlx_ptr, img()->p_down);
+	if (img()->p_left)
+		mlx_destroy_image(map()->mlx_ptr, img()->p_left);
+	if (img()->p_right)
+		mlx_destroy_image(map()->mlx_ptr, img()->p_right);
+	return (1);
 }

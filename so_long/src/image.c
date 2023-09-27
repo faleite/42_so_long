@@ -6,33 +6,11 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:21:27 by faaraujo          #+#    #+#             */
-/*   Updated: 2023/09/26 21:45:19 by faaraujo         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:21:24 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void	*file_to_image(char *path)
-{
-	void	*img;
-	int		width;
-	int		height;
-
-	img = mlx_xpm_file_to_image(map()->mlx_ptr, path, &width, &height);
-	return (img);
-}
-
-void	image_to_window(void *image, int x, int y)
-{
-	mlx_put_image_to_window
-	(
-		map()->mlx_ptr,
-		map()->win_ptr,
-		image,
-		x * SIZE,
-		y * SIZE
-	);
-}
 
 void	get_image(void)
 {
@@ -71,4 +49,37 @@ void	put_image(void)
 		}
 		x++;
 	}
+}
+
+void	*file_to_image(char *path)
+{
+	void	*img;
+	int		width;
+	int		height;
+
+	img = mlx_xpm_file_to_image(map()->mlx_ptr, path, &width, &height);
+	if (!img)
+		image_error();
+	return (img);
+}
+
+void	image_to_window(void *image, int x, int y)
+{
+	mlx_put_image_to_window
+	(
+		map()->mlx_ptr,
+		map()->win_ptr,
+		image,
+		x * SIZE,
+		y * SIZE
+	);
+}
+
+void	image_error(void)
+{
+	destroy_image();
+	mlx_destroy_window(map()->mlx_ptr, map()->win_ptr);
+	mlx_destroy_display(map()->mlx_ptr);
+	free(map()->mlx_ptr);
+	err_case("Error\nImage doesn't work\n");
 }
