@@ -14,7 +14,7 @@ textures, sprites, and some other very basic gameplay elements.**
 
  Skills | Grade |
 :------:|:-----:|
-[**Imperative programming**] [**Graphics**] | **119%**
+[**Imperative programming**] [**Graphics**] | **:white_check_mark: 119%**
 
 <!-- [![faaraujo's 42 stats](https://badge42.vercel.app/api/v2/clgrr2va0002108jo3cc5foww/stats?cursusId=21&coalitionId=112)](https://github.com/JaeSeoKim/badge42) -->
 
